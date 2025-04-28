@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Delete Request - Admin Panel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f5f5f5;
+    }
+
+    header {
+      width: 100%;
+      height: 90px;
+      background-color: #d32f2f;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 80px;
+      width: 80px;
+    }
+
+    .logo h1 {
+      color: white;
+      font-size: 24px;
+      margin-left: 10px;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 90px;
+      left: 0;
+      width: 220px;
+      height: calc(100vh - 90px);
+      background-color: #d32f2f;
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 15px 20px;
+      color: white;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #b71c1c;
+    }
+
+    .main-content {
+      margin-left: 220px;
+      margin-top: 90px;
+      padding: 30px;
+    }
+
+    h2 {
+      color: #d32f2f;
+      margin-bottom: 20px;
+    }
+
+    form {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin: auto;
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .button-group button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .delete-btn {
+      background-color: #d32f2f;
+    }
+
+ 
+
+    .delete-btn:hover {
+      background-color: #b71c1c;
+    }
+    .cancel-btn {
+  background-color: #777;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+}
+.cancel-btn:hover {
+  background-color: #555;
+}
+ 
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <a href="blood.html"><img src="Sr.png" alt="RedHope Logo" /></a>
+      <h1>RedHope Blood Bank - Admin Panel</h1>
+    </div>
+  </header>
+
+  <div class="sidebar">
+    <a href="AdHome.html">Dashboard</a>
+    <a href="UserDono.html">USER Donations</a>
+    <a href="UserRe.html">USER Requests</a>
+    <a href="AprDONA.html">Approved Donations</a>
+    <a href="AprREQ.html">Approved Requests</a>
+    <a href="ManageAd.html">Manage Admins</a>
+    <a href="blood.html">Logout</a>
+  </div>
+
+  <div class="main-content">
+    <h2>Delete Approved Request</h2>
+    <form action="delete_request.php" method="post">
+      <label for="requestId">Enter Request ID to Delete</label>
+      <input type="text" id="requestId" name="requestId" placeholder="ID" required />
+
+      <div class="button-group">
+        <button type="submit" class="delete-btn">Delete Request</button>
+        <a href="AproRe.html" class="cancel-btn" style="text-decoration: none; display: inline-block; text-align: center;">Cancel</a>
+      </div>
+    </form>
+  </div>
+
+</body>
+</html>

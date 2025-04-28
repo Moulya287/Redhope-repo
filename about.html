@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RedHope Blood Bank</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #fff5f5;
+      color: #333;
+    }
+
+    header {
+  background-color: #c62828;
+  color: white;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo img {
+      height: 80px;
+      width: 80px;
+    }
+
+    .logo h1 {
+      font-size: 28px;
+    }
+
+    nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+
+    .info-columns {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 40px;
+      background: #e53935;
+      color: white;
+    }
+
+    .info-column {
+      flex: 1;
+      min-width: 250px;
+      margin: 10px;
+    }
+
+    .info-column h4 {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .info-column ul, .info-column p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .info-column ul li {
+      list-style: none;
+      margin-bottom: 8px;
+    }
+
+    .info-column ul li::before {
+      content: "\2014  ";
+      color: #fddede;
+    }
+
+    .info-column .icon-text {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .info-column .icon-text img {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+
+    footer {
+      background-color: #c62828;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    .social-icons {
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      margin: 0 8px;
+      display: inline-block;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .social-icons img {
+      width: 28px;
+      height: 28px;
+      vertical-align: middle;
+      filter: brightness(0) invert(1);
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+      filter: brightness(1.5);
+    }
+
+   .li,.mail,.map{
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.li:hover{
+  text-decoration: underline; 
+}
+
+.map:hover {
+
+  text-decoration: underline; 
+}
+.mail:hover {
+
+text-decoration: underline; 
+}
+.about{
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+}
+.about:hover {
+
+text-decoration: underline; 
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  
+}
+
+nav .dropdown {
+  position: relative;
+  margin-left: 20px;
+}
+
+nav .dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #c62828;
+  top: 100%;
+  left: 0;
+  padding: 10px 0;
+  list-style: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  z-index: 100;
+}
+
+nav .dropdown-menu li {
+  padding: 8px 20px;
+}
+
+nav .dropdown-menu li a {
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  display: block;
+}
+
+nav .dropdown-menu li a:hover {
+  background-color: #f44336;
+}
+
+nav .dropdown:hover .dropdown-menu {
+  display: block;
+}
+.nav-link {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  
+}
+
+.nav-link:hover {
+  color:  #f44336;
+  text-decoration: underline;
+}
+.hero {
+      background: linear-gradient(to right, #c62828, #f44336);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .hero h2 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .about-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.content {
+      padding: 3rem 2rem;
+      max-width: 1000px;
+      margin: auto;
+      line-height: 1.8;
+    }
+
+    .content h2 {
+      color: #900;
+      font-size: 28px;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .content p {
+      font-size: 17px;
+      color: #444;
+      margin-bottom: 1.2rem;
+    }
+
+ 
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="blood.html"><img src="Sr.png" alt="RedHope Logo"></a>
+      <h1>RedHope Blood Bank</h1>
+    </div>
+    <nav>
+      <a href="blood.html" class="nav-link">Home</a>
+      <a href="donate.html" class="nav-link">Donate</a>
+      <a href="request.html" class="nav-link">Request</a>
+    
+     
+      <div class="dropdown">
+        <a href="#" >Services</a>
+        <ul class="dropdown-menu">
+          <li><a href="blcoll&Man.html">Blood Donation & Collection</a></li>
+          <li><a href="plasma.html">Plasma Donation & Apheresis</a></li>
+          <li><a href="compo.html">Component Separation</a></li>
+          <li><a href="emer.html">Emergency Blood Supply</a></li>
+          <li><a href="rare.html">Rare Blood Group Support</a></li>
+          <li><a href="train.html">Training & Capacity Building</a></li>
+          <li><a href="servi.html">Research</a></li>
+        </ul>
+      </div>
+    
+    
+      <div class="dropdown">
+        <a href="#">About Us</a>
+        <ul class="dropdown-menu">
+            <li><a href="about.html#achievements">Our Achievements</a></li>
+            <li><a href="about.html#managemnt">Management</a></li>
+          </ul>
+      </div>
+    
+      <a href="testimonial.html" class="nav-link">Testimonials</a>
+      <a href="contactdbms.html" class="nav-link">Contact</a>
+      <a href="AdminLogIN.html" class="nav-link">Admin</a>
+    </nav>
+    
+  </header>
+  
+
+
+
+
+
+
+
+  <div class="hero">
+    <h1>About Us</h1>
+    <p>We are committed to saving lives and making blood accessible, safe, and reliable for all communities.</p>
+  </div>
+
+
+
+  <section class="content">
+    <img src="SU.webp" alt="image" class="about-img">
+
+    <p>
+      RedHope Blood Bank is not just a facility—it's a mission born out of the urgent need to save lives across communities. Since our inception, we’ve been driven by compassion, innovation, and the unwavering belief that every drop counts.
+    </p>
+
+    <p>
+      With modern infrastructure and a people-first approach, we ensure that both donors and recipients have a seamless, safe, and dignified experience. Our systems integrate advanced technology for inventory management, donor records, emergency alerts, and logistics to respond rapidly in critical situations.
+    </p>
+
+    <p>
+      Beyond just collection and storage, RedHope plays a pivotal role in raising awareness through blood donation drives, educational programs, and active collaboration with colleges, corporates, and civic organizations.
+    </p>
+
+   
+    <h2 id="achievements">Our Achievements</h2>
+   
+        <img src="nun.webp" alt="Descriptive Alt Text" class="about-img">
+
+ 
+    <p>
+      Over the past 5 years, RedHope has transformed the landscape of blood donation and transfusion services:
+    </p>
+    <ul style="padding-left: 20px;">
+      <li>Facilitated over <strong>50,000+ safe blood transfusions</strong></li>
+      <li>Established a <strong>24/7 emergency response unit</strong> for trauma and critical cases</li>
+      <li>Recognized as the <strong>Best Voluntary Blood Bank</strong> in the Southern Region (2023)</li>
+      <li>Developed a unique <strong>Donor Loyalty Program</strong> to promote regular donations</li>
+      <li>Integrated with <strong>30+ hospitals</strong> through real-time data sharing systems</li>
+      <li>Launched a community app for quick requests and notifications</li>
+      <li>Conducted 120+ blood donation camps in urban and remote regions</li>
+      <li>Successfully ran a COVID-19 plasma donation initiative with 5,000+ donors</li>
+    </ul>
+
+   
+    <h2 id="management">Management</h2>
+ 
+        <img src="mom.jpg" alt="Descriptive Alt Text" class="about-img">
+
+
+   
+    <p>
+      At RedHope, leadership isn't just about policy—it's about purpose. Our management comprises individuals who bring passion, expertise, and ethical integrity into every decision.
+    </p>
+    <ul style="padding-left: 20px;">
+      <li><strong>Dr. Anjali Rao</strong> – Founder & Director (MBBS, MPH): A visionary public health expert with a focus on equitable healthcare access.</li>
+      <li><strong>Mr. Ritesh Gupta</strong> – Operations Head: A disciplined logistics professional with 20+ years of experience in critical care mobilization.</li>
+      <li><strong>Ms. Priya Deshmukh</strong> – Digital Strategy Lead: Specialist in health-tech transformation, leading our digitization journey.</li>
+      <li><strong>Dr. Sameer Khan</strong> – Lead Hematologist: Renowned in transfusion medicine, guiding the medical protocols of RedHope.</li>
+    </ul>
+
+    <p>
+      Their combined leadership not only ensures that RedHope maintains high-quality standards but also fosters a culture of continuous learning and innovation. Under their guidance, we are constantly evolving to serve more lives, more efficiently.
+    </p>
+  </section>
+
+  
+
+
+
+
+ 
+
+  <div class="info-columns">
+    <div class="info-column">
+      <h4>About Us</h4>
+      <ul>
+        <li><a href="about.html#achievements" class="about">Our Achievements</a></li>
+        <li><a href="about.html#management" class="about">Management</a></li>
+      </ul>
+      <img src="Sr.png" alt="BMST Logo" style="width: 100px; margin-top: 10px;">
+      <h1>RedHope Blood Bank</h1>
+      <h3>  - Your Blood, Their Hope.</h3>
+    </div>
+    <div class="info-column">
+      <h4>Services</h4>
+      <ul>
+        <li><a class="li" href="blcoll&Man.html">Blood Donation & Collection</a></li>
+        <li><a class="li" href="plasma.html">Plasma Donation & Apheresis</a></li>
+        <li><a class="li" href="compo.html">Component Separation</a></li>
+        <li><a class="li" href="emer.html">Emergency Blood Supply</a></li>
+        <li><a class="li" href="rare.html">Rare Blood Group Support</a></li>
+        <li><a class="li" href="train.html">Training & Capacity Building</a></li>
+        <li><a class="li" href="servi.html">Research</a></li>
+      </ul>
+    </div>
+    <div class="info-column">
+      <h4>Contact Us</h4>
+      <div class="icon-text"><img src="hi.png" alt="Location">RedHope Blood Bank<br>
+        #123, Health Avenue, Indiranagar,<br>
+        Bengaluru, Karnataka – 560038 .</div>
+        <br>
+      <div class="icon-text"><img src="tha.png" alt="Phone">+91 (81) 7729 3684</div><br>
+      <div class="icon-text"><img src="nama.png" alt="Email"><a href="https://mail.google.com/mail/u/0/#inbox?compose=new" class="mail"  target="_blank">REDHOPEbloodbank@rhbb_india.org</a></div><br>
+      <div class="icon-text"><img src="GU.png" alt="Map"><a href="https://www.google.co.in/maps" class="map"   target="_blank">Google Map / Directions</a></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 RedHope Blood Bank. All rights reserved.</p>
+    <div class="social-icons">
+        <a href="https://www.facebook.com"><img src="REE.png" alt="Facebook"  ></a>
+        <a href="https://www.twitter.com"><img src="SHA.png" alt="Twitter"  ></a>
+        <a href="https://www.instagram.com"><img src="KSHA.png" alt="Instagram" ></a>
+        <a href="https://www.youtube.com"><img src="NIREK.png" alt="YouTube"  ></a>
+      </div>
+  </footer>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

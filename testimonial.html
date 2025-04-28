@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RedHope Blood Bank</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #fff5f5;
+      color: #333;
+    }
+
+    header {
+  background-color: #c62828;
+  color: white;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo img {
+      height: 80px;
+      width: 80px;
+    }
+
+    .logo h1 {
+      font-size: 28px;
+    }
+
+    nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+
+    .info-columns {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 40px;
+      background: #e53935;
+      color: white;
+    }
+
+    .info-column {
+      flex: 1;
+      min-width: 250px;
+      margin: 10px;
+    }
+
+    .info-column h4 {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .info-column ul, .info-column p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .info-column ul li {
+      list-style: none;
+      margin-bottom: 8px;
+    }
+
+    .info-column ul li::before {
+      content: "\2014  ";
+      color: #fddede;
+    }
+
+    .info-column .icon-text {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .info-column .icon-text img {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+
+    footer {
+      background-color: #c62828;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    .social-icons {
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      margin: 0 8px;
+      display: inline-block;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .social-icons img {
+      width: 28px;
+      height: 28px;
+      vertical-align: middle;
+      filter: brightness(0) invert(1);
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+      filter: brightness(1.5);
+    }
+
+   .li,.mail,.map{
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.li:hover{
+  text-decoration: underline; 
+}
+.map:hover {
+
+  text-decoration: underline; 
+}
+.mail:hover {
+
+text-decoration: underline; 
+}
+.about{
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+}
+.about:hover {
+
+text-decoration: underline; 
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  
+}
+
+nav .dropdown {
+  position: relative;
+  margin-left: 20px;
+}
+
+nav .dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #c62828;
+  top: 100%;
+  left: 0;
+  padding: 10px 0;
+  list-style: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  z-index: 100;
+}
+
+nav .dropdown-menu li {
+  padding: 8px 20px;
+}
+
+nav .dropdown-menu li a {
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  display: block;
+}
+
+nav .dropdown-menu li a:hover {
+  background-color: #f44336;
+}
+
+nav .dropdown:hover .dropdown-menu {
+  display: block;
+}
+.nav-link {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  
+}
+
+.nav-link:hover {
+  color:  #f44336;
+  text-decoration: underline;
+}
+
+.testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+
+    .testimonial {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      padding: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .testimonial:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+
+    .testimonial img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .testimonial-content {
+      flex: 1;
+    }
+
+    .testimonial-content p {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+
+    .name {
+      font-weight: 600;
+      color: #c62828;
+    }
+
+    .quote {
+      font-size: 30px;
+      color: #f44336;
+      margin-bottom: 5px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .say {
+      text-align: center;
+      color: #c62828;
+      margin-bottom: 40px;
+      font-size: 36px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="blood.html"><img src="Sr.png" alt="RedHope Logo"></a>
+      <h1>RedHope Blood Bank</h1>
+    </div>
+    <nav>
+      <a href="blood.html" class="nav-link">Home</a>
+      <a href="donate.html" class="nav-link">Donate</a>
+      <a href="request.html" class="nav-link">Request</a>
+    
+     
+      <div class="dropdown">
+        <a href="#" >Services</a>
+        <ul class="dropdown-menu">
+          <li><a href="blcoll&Man.html">Blood Donation & Collection</a></li>
+          <li><a href="plasma.html">Plasma Donation & Apheresis</a></li>
+          <li><a href="compo.html">Component Separation</a></li>
+          <li><a href="emer.html">Emergency Blood Supply</a></li>
+          <li><a href="rare.html">Rare Blood Group Support</a></li>
+          <li><a href="train.html">Training & Capacity Building</a></li>
+          <li><a href="servi.html">Research</a></li>
+        </ul>
+      </div>
+    
+    
+      <div class="dropdown">
+        <a href="#">About Us</a>
+        <ul class="dropdown-menu">
+          <li><a href="about.html#achievements">Our Achievements</a></li>
+          <li><a href="about.html#managemnt">Management</a></li>
+        </ul>
+      </div>
+    
+      <a href="testimonial.html" class="nav-link">Testimonials</a>
+      <a href="contactdbms.html" class="nav-link">Contact</a>
+      <a href="AdminLogIN.html" class="nav-link">Admin</a>
+    </nav>
+    
+  </header>
+  
+
+  <div class="container">
+    <h1 class="say">What Our Donors & Recipients Say</h1>
+    <div class="testimonials">
+
+      <div class="testimonial">
+        <img src="pho5.jpg" alt="Riya Patel">
+        <div class="testimonial-content">
+          <div class="quote">“</div>
+          <p>I was in urgent need of AB- blood and RedHope helped me in just 2 hours. Truly life-saving work!</p>
+          <div class="name">– Riya Patel</div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <img src="pho6.jpg" alt="Ankit Sharma">
+        <div class="testimonial-content">
+          <div class="quote">“</div>
+          <p>Donating blood here was smooth and well-organized. I’m proud to be a regular donor at RedHope.</p>
+          <div class="name">– Ankit Sharma</div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <img src="pho9.webp" alt="Sneha Kumar">
+        <div class="testimonial-content">
+          <div class="quote">“</div>
+          <p>The staff are kind, professional, and very dedicated. Their emergency service saved my cousin’s life.</p>
+          <div class="name">– Sneha Kumar</div>
+        </div>
+      </div>
+
+      <div class="testimonial">
+        <img src="pho3.jpg" alt="Rahul Verma">
+        <div class="testimonial-content">
+          <div class="quote">“</div>
+          <p>I never realized how easy and impactful blood donation could be. RedHope makes it so seamless.</p>
+          <div class="name">– Rahul Verma</div>
+        </div>
+      </div>
+      
+      <div class="testimonial">
+        <img src="pho4.webp" alt="Asha Nair">
+        <div class="testimonial-content">
+          <div class="quote">“</div>
+          <p>As a medical student, I’m amazed by RedHope’s commitment to both service and research.</p>
+          <div class="name">– Asha Nair</div>
+        </div>
+      </div>
+      
+      <div class="testimonial">
+        <img src="pho2.jpg" alt="Daniel Fernandes">
+        <div class="testimonial-content">
+          <div class="quote">“</div>
+          <p>I once needed rare blood in an emergency. RedHope came through faster than I imagined. Forever grateful.</p>
+          <div class="name">– Daniel Fernandes</div>
+        </div>
+      </div>
+      
+
+      <div class="testimonial">
+        <img src="pho1.webp" alt="Daniel Thomas">
+        <div class="testimonial-content">
+          <div class="quote">“</div>
+          <p>Such a warm and clean facility! I even got a donor certificate and badge. Amazing initiative!</p>
+          <div class="name">– Daniel Thomas</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+  <section style="background-color: #fff3f3; padding: 50px 20px;">
+    <div style="max-width: 700px; margin: auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 5px 20px rgba(0,0,0,0.1);">
+      <h2 style="text-align: center; color: #c62828; margin-bottom: 30px;">Submit Your Testimonial</h2>
+      <form id="testimonialForm">
+        <div style="margin-bottom: 20px;">
+          <label for="name" style="display: block; font-weight: 600;">Name</label>
+          <input type="text" id="name" name="name" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; margin-top: 5px;">
+        </div>
+        <div style="margin-bottom: 20px;">
+          <label for="email" style="display: block; font-weight: 600;">Email</label>
+          <input type="email" id="email" name="email" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; margin-top: 5px;">
+        </div>
+        <div style="margin-bottom: 20px;">
+          <label for="photo" style="display: block; font-weight: 600;">Upload Photo (optional)</label>
+          <input type="file" id="photo" name="photo" accept="image/*" style="margin-top: 5px;">
+        </div>
+        <div style="margin-bottom: 20px;">
+          <label for="message" style="display: block; font-weight: 600;">Your Message</label>
+          <textarea id="message" name="message" rows="5" required style="width: 100%; padding: 10px; border-radius: 6px; border: 1px solid #ccc; margin-top: 5px;"></textarea>
+        </div>
+        <button type="submit" style="background-color: #e53935; color: white; padding: 12px 30px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer;">Submit</button>
+      </form>
+      <p id="confirmationMsg" style="margin-top: 20px; text-align: center; color: green; display: none;">Thank you! Your testimonial has been submitted.</p>
+    </div>
+  </section>
+  
+  <script>
+    document.getElementById('testimonialForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // Simulate form processing delay
+      setTimeout(() => {
+        document.getElementById('testimonialForm').reset();
+        document.getElementById('confirmationMsg').style.display = 'block';
+      }, 500);
+    });
+  </script>
+  
+
+
+
+
+  <div class="info-columns">
+    <div class="info-column">
+      <h4>About Us</h4>
+      <ul>
+        <li><a href="about.html#achievements" class="about">Our Achievements</a></li>
+        <li><a href="about.html#management" class="about">Management</a></li>
+      </ul>
+      <img src="Sr.png" alt="BMST Logo" style="width: 100px; margin-top: 10px;">
+      <h1>RedHope Blood Bank</h1>
+      <h3>  - Your Blood, Their Hope.</h3>
+    </div>
+    <div class="info-column">
+      <h4>Services</h4>
+      <ul>
+        <li><a class="li" href="blcoll&Man.html">Blood Donation & Collection</a></li>
+        <li><a class="li" href="plasma.html">Plasma Donation & Apheresis</a></li>
+        <li><a class="li" href="compo.html">Component Separation</a></li>
+        <li><a class="li" href="emer.html">Emergency Blood Supply</a></li>
+        <li><a class="li" href="rare.html">Rare Blood Group Support</a></li>
+        <li><a class="li" href="train.html">Training & Capacity Building</a></li>
+        <li><a class="li" href="servi.html">Research</a></li>
+      </ul>
+    </div>
+    <div class="info-column">
+      <h4>Contact Us</h4>
+      <div class="icon-text"><img src="hi.png" alt="Location">RedHope Blood Bank<br>
+        #123, Health Avenue, Indiranagar,<br>
+        Bengaluru, Karnataka – 560038 .</div>
+        <br>
+      <div class="icon-text"><img src="tha.png" alt="Phone">+91 (81) 7729 3684</div><br>
+      <div class="icon-text"><img src="nama.png" alt="Email"><a href="https://mail.google.com/mail/u/0/#inbox?compose=new" class="mail"  target="_blank">REDHOPEbloodbank@rhbb_india.org</a></div><br>
+      <div class="icon-text"><img src="GU.png" alt="Map"><a href="https://www.google.co.in/maps" class="map"   target="_blank">Google Map / Directions</a></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 RedHope Blood Bank. All rights reserved.</p>
+    <div class="social-icons">
+        <a href="https://www.facebook.com"><img src="REE.png" alt="Facebook"  ></a>
+        <a href="https://www.twitter.com"><img src="SHA.png" alt="Twitter"  ></a>
+        <a href="https://www.instagram.com"><img src="KSHA.png" alt="Instagram" ></a>
+        <a href="https://www.youtube.com"><img src="NIREK.png" alt="YouTube"  ></a>
+      </div>
+  </footer>
+
+  
+</body>
+</html>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RedHope Blood Bank</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #fff5f5;
+      color: #333;
+    }
+
+    header {
+  background-color: #c62828;
+  color: white;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo img {
+      height: 80px;
+      width: 80px;
+    }
+
+    .logo h1 {
+      font-size: 28px;
+    }
+
+    nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+      background: linear-gradient(to right, #c62828, #f44336);
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .hero-content h2 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    section {
+      padding: 60px 40px;
+      background: white;
+    }
+
+    section h3 {
+      font-size: 32px;
+      margin-bottom: 20px;
+      color: #c62828;
+    }
+
+    .card {
+      background: #fff0f0;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    .info-columns {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 40px;
+      background: #e53935;
+      color: white;
+    }
+
+    .info-column {
+      flex: 1;
+      min-width: 250px;
+      margin: 10px;
+    }
+
+    .info-column h4 {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .info-column ul, .info-column p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .info-column ul li {
+      list-style: none;
+      margin-bottom: 8px;
+    }
+
+    .info-column ul li::before {
+      content: "\2014  ";
+      color: #fddede;
+    }
+
+    .info-column .icon-text {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .info-column .icon-text img {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+
+    footer {
+      background-color: #c62828;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    .social-icons {
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      margin: 0 8px;
+      display: inline-block;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .social-icons img {
+      width: 28px;
+      height: 28px;
+      vertical-align: middle;
+      filter: brightness(0) invert(1);
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+      filter: brightness(1.5);
+    }
+
+   
+
+    
+    .cta-button {
+      background-color: white;
+      color: #c62828;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s ease;
+      text-decoration: none;
+}
+
+.cta-button:hover {
+  background-color: #fddede;
+}
+   .li,.mail,.map{
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.li:hover{
+  text-decoration: underline; 
+}
+.map:hover {
+
+  text-decoration: underline; 
+}
+.mail:hover {
+
+text-decoration: underline; 
+}
+.about{
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+}
+.about:hover {
+
+text-decoration: underline; 
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  
+}
+
+nav .dropdown {
+  position: relative;
+  margin-left: 20px;
+}
+
+nav .dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #c62828;
+  top: 100%;
+  left: 0;
+  padding: 10px 0;
+  list-style: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  z-index: 100;
+}
+
+nav .dropdown-menu li {
+  padding: 8px 20px;
+}
+
+nav .dropdown-menu li a {
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  display: block;
+}
+
+nav .dropdown-menu li a:hover {
+  background-color: #f44336;
+}
+
+nav .dropdown:hover .dropdown-menu {
+  display: block;
+}
+.nav-link {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  
+}
+
+.nav-link:hover {
+  color:  #f44336;
+  text-decoration: underline;
+}
+
+.extra-section {
+  padding: 60px 30px;
+  background-color: #f9f9f9; 
+  margin-top: 50px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.extra-section h3 {
+  font-size: 36px;
+  color: #c62828; 
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.extra-section p {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.extra-section .cta-button {
+  background-color: #c62828;
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.extra-section .cta-button:hover {
+  background-color: #f44336;
+}
+
+
+.extra-section .request-section {
+  background-color: #fddede;
+
+  color: white;
+  padding: 60px 30px;
+  margin-bottom: 40px;
+  border-radius: 10px;
+}
+
+
+.history-section {
+  background-color: #f1f1f1; 
+  color: #333;
+  padding: 60px 30px;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+
+@media (max-width: 768px) {
+  .extra-section {
+    padding: 40px 20px;
+  }
+  .extra-section h3 {
+    font-size: 28px;
+  }
+  .extra-section p {
+    font-size: 16px;
+  }
+}
+
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="blood.html"><img src="Sr.png" alt="RedHope Logo"></a>
+      <h1>RedHope Blood Bank</h1>
+    </div>
+    <nav>
+      <a href="blood.html" class="nav-link">Home</a>
+      <a href="donate.html" class="nav-link">Donate</a>
+      <a href="request.html" class="nav-link">Request</a>
+    
+     
+      <div class="dropdown">
+        <a href="#" >Services</a>
+        <ul class="dropdown-menu">
+          <li><a href="blcoll&Man.html">Blood Donation & Collection</a></li>
+          <li><a href="plasma.html">Plasma Donation & Apheresis</a></li>
+          <li><a href="compo.html">Component Separation</a></li>
+          <li><a href="emer.html">Emergency Blood Supply</a></li>
+          <li><a href="rare.html">Rare Blood Group Support</a></li>
+          <li><a href="train.html">Training & Capacity Building</a></li>
+          <li><a href="servi.html">Research</a></li>
+        </ul>
+      </div>
+    
+    
+      <div class="dropdown">
+        <a href="#">About Us</a>
+        <ul class="dropdown-menu">
+          <li><a href="about.html#achievements">Our Achievements</a></li>
+          <li><a href="about.html#management">Management</a></li>
+          
+          
+        </ul>
+      </div>
+    
+      <a href="testimonial.html" class="nav-link">Testimonials</a>
+      <a href="contactdbms.html" class="nav-link">Contact</a>
+      <a href="AdminLogIN.html" class="nav-link">Admin</a>
+    </nav>
+    
+  </header>
+  
+
+  <div class="hero">
+    <div class="hero-content">
+      <h2>Give Blood, Save Lives</h2>
+      <p>Join RedHope in creating a life-saving network. Every drop counts. Be a hero today.</p>
+      <br />
+      <a href="donate.html" class="cta-button">Become a Donor</a>
+    </div>
+  </div>
+
+
+
+  
+<div class="extra-section">
+  <div class="request-section">
+    <h3>Make a Blood Donation Request</h3>
+    <p>If you are in need of blood or plasma, don't hesitate to request it. Our team is ready to help you.</p>
+    <a href="request.html" class="cta-button">Request Blood Now</a>
+  </div>
+</div>
+
+<div class="extra-section">
+  <div class="history-section">
+    <h3>Our History</h3>
+    <p>RedHope Blood Bank has been serving communities for years, helping save countless lives by providing essential blood donations.</p>
+    <a href="about.html" class="cta-button">Learn More About Us</a>
+  </div>
+</div>
+
+
+
+
+
+  
+<section>
+  <h3>Why Choose RedHope?</h3>
+  <div class="card">
+    <p>RedHope Blood Bank provides a dedicated network for blood donation, ensuring that every donation saves lives. We offer a variety of services to cater to different medical needs and emergencies, with a focus on safety and efficiency.</p>
+  </div>
+  <div class="card">
+    <p>We ensure that each donor is carefully monitored and guided through the donation process, making the experience smooth and comfortable. Our team is highly trained to provide the best care to both donors and recipients.</p>
+  </div>
+  <div class="card">
+    <p>Our Blood Bank follows stringent quality standards to maintain the highest level of hygiene and safety. With a reliable network, we ensure timely and safe blood delivery when it is needed the most.</p>
+  </div>
+</section>
+
+<section>
+  <h3>Our Services</h3>
+  <div class="card">
+    <p>We provide a wide range of services including blood donation, plasma collection, emergency blood supply, and research. Join us in making a life-saving impact!</p>
+  </div>
+  <div class="card">
+    <p>Our plasma donation service helps those in need of specialized treatments, while our apheresis technology ensures the safe collection of blood components. Both are crucial in treating a variety of diseases.</p>
+  </div>
+  <div class="card">
+    <p>In addition to blood donation, we also specialize in providing rare blood group support and emergency blood supply to patients in critical conditions, ensuring they receive the help they need at the right time.</p>
+  </div>
+</section>
+
+
+  <div class="info-columns">
+    <div class="info-column">
+      <h4>About Us</h4>
+      <ul>
+        <li><a href="about.html#achievements" class="about">Our Achievements</a></li>
+        <li><a href="about.html#management" class="about">Management</a></li>
+      </ul>
+      <img src="Sr.png" alt="BMST Logo" style="width: 100px; margin-top: 10px;">
+      <h1>RedHope Blood Bank</h1>
+      <h3>  - Your Blood, Their Hope.</h3>
+    </div>
+    <div class="info-column">
+      <h4>Services</h4>
+      <ul>
+        <li><a class="li" href="blcoll&Man.html">Blood Donation & Collection</a></li>
+        <li><a class="li" href="plasma.html">Plasma Donation & Apheresis</a></li>
+        <li><a class="li" href="compo.html">Component Separation</a></li>
+        <li><a class="li" href="emer.html">Emergency Blood Supply</a></li>
+        <li><a class="li" href="rare.html">Rare Blood Group Support</a></li>
+        <li><a class="li" href="train.html">Training & Capacity Building</a></li>
+        <li><a class="li" href="servi.html">Research</a></li>
+      </ul>
+    </div>
+    <div class="info-column">
+      <h4>Contact Us</h4>
+      <div class="icon-text"><img src="hi.png" alt="Location">RedHope Blood Bank<br>
+        #123, Health Avenue, Indiranagar,<br>
+        Bengaluru, Karnataka – 560038 .</div>
+        <br>
+      <div class="icon-text"><img src="tha.png" alt="Phone">+91 (81) 7729 3684</div><br>
+      <div class="icon-text"><img src="nama.png" alt="Email"><a href="https://mail.google.com/mail/u/0/#inbox?compose=new" class="mail"  target="_blank">REDHOPEbloodbank@rhbb_india.org</a></div><br>
+      <div class="icon-text"><img src="GU.png" alt="Map"><a href="https://www.google.co.in/maps" class="map"   target="_blank">Google Map / Directions</a></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 RedHope Blood Bank. All rights reserved.</p>
+    <div class="social-icons">
+        <a href="https://www.facebook.com"><img src="REE.png" alt="Facebook"  ></a>
+        <a href="https://www.twitter.com"><img src="SHA.png" alt="Twitter"  ></a>
+        <a href="https://www.instagram.com"><img src="KSHA.png" alt="Instagram" ></a>
+        <a href="https://www.youtube.com"><img src="NIREK.png" alt="YouTube"  ></a>
+      </div>
+  </footer>
+  
+</body>
+</html>

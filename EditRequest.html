@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Edit Request - Admin Panel</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f5f5f5;
+    }
+
+    header {
+      width: 100%;
+      height: 90px;
+      background-color: #d32f2f;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 80px;
+      width: 80px;
+    }
+
+    .logo h1 {
+      color: white;
+      font-size: 24px;
+      margin-left: 10px;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 90px;
+      left: 0;
+      width: 220px;
+      height: calc(100vh - 90px);
+      background-color: #d32f2f;
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 15px 20px;
+      color: white;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #b71c1c;
+    }
+
+    .main-content {
+      margin-left: 220px;
+      margin-top: 90px;
+      padding: 30px;
+    }
+
+    h2 {
+      color: #d32f2f;
+      margin-bottom: 20px;
+    }
+
+    form {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin: auto;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 500;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    .button-group button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .submit-btn {
+      background-color: #d32f2f;
+    }
+
+    
+    .submit-btn:hover {
+      background-color: #b71c1c;
+    }
+
+    
+    .cancel-btn {
+  background-color: #777;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+}
+.cancel-btn:hover {
+  background-color: #555;
+}
+ 
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <a href="blood.html"><img src="Sr.png" alt="RedHope Logo" /></a>
+      <h1>RedHope Blood Bank - Admin Panel</h1>
+    </div>
+  </header>
+
+  <div class="sidebar">
+    <a href="AdHome.html">Dashboard</a>
+    <a href="UserDono.html">USER Donations</a>
+    <a href="UserRe.html">USER Requests</a>
+    <a href="AprDONA.html">Approved Donations</a>
+    <a href="AprREQ.html">Approved Requests</a>
+    <a href="ManageAd.html">Manage Admins</a>
+    <a href="blood.html">Logout</a>
+  </div>
+
+  <div class="main-content">
+    <h2>Edit Approved Request</h2>
+    <form action="edit_request.php" method="POST">
+      <label for="request_id">Request ID(which u want to edit)</label>
+      <input type="number" id="request_id" name="request_id" required>
+  
+      <label for="full_name"> NEW Full Name</label>
+      <input type="text" id="full_name" name="full_name" required>
+  
+      <label for="email"> NEW Email</label>
+      <input type="email" id="email" name="email" required>
+  
+      <label for="phone_number"> NEW Phone Number</label>
+      <input type="text" id="phone_number" name="phone_number" required>
+  
+      <label for="blood_group"> NEW Blood Group</label>
+      <select id="blood_group" name="blood_group" required>
+        <option value="">-- Select Blood Group --</option>
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="B+">B+</option>
+        <option value="B-">B-</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB-</option>
+      </select>
+  
+      <label for="delivery_location"> NEW Delivery Location</label>
+      <input type="text" id="delivery_location" name="delivery_location" required>
+  
+      <label for="quantity"> NEW Quantity (units)</label>
+      <input type="number" id="quantity" name="quantity" required>
+  
+      <label for="delivered_date"> NEW Delivered Date</label>
+      <input type="date" id="delivered_date" name="delivered_date" required>
+  
+      <div class="button-group">
+        <button type="submit" class="submit-btn">Update Request</button>
+        <a href="AproRe.html" class="cancel-btn" style="text-decoration: none; display: inline-block; text-align: center;">Cancel</a>
+      </div>
+    </form> 
+        
+   
+  </div>
+
+</body>
+</html>

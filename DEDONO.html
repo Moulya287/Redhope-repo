@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Delete Donation - RedHope Blood Bank</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+        * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f5f5f5;
+    }
+
+    header {
+      width: 100%;
+      height: 90px;
+      background-color: #d32f2f;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 80px;
+      width: 80px;
+    }
+
+    .logo h1 {
+      color: white;
+      font-size: 24px;
+      margin-left: 10px;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 90px;
+      left: 0;
+      width: 220px;
+      height: calc(100vh - 70px);
+      background-color: #d32f2f;
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 15px 20px;
+      color: white;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #b71c1c;
+    }
+
+    .main-content {
+      margin-left: 220px;
+      margin-top: 90px;
+      padding: 30px;
+    }
+
+    h2 {
+      color: #d32f2f;
+      margin-bottom: 20px;
+    }
+
+    .form-container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .btn-submit {
+      background-color: #d32f2f;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn-submit:hover {
+      background-color: #b71c1c;
+    }
+
+    .btn-back {
+      background-color: #388e3c;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .btn-back:hover {
+      background-color: #2c6e2a;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <a href="blood.html"><img src="Sr.png" alt="RedHope Logo"></a>
+    <h1>RedHope Blood Bank - Admin Panel</h1>
+  </div>
+</header>
+
+<div class="sidebar">
+  <a href="AdHome.html"> Dashboard</a>
+  <a href="UserDono.html"> User Donations</a>
+  <a href="UserRe.html"> User Requests</a>
+  <a href="AprDONA.html"> Approved Donations</a>
+  <a href="AproRe.html"> Approved Requests</a>
+  <a href="ManageAd.html"> Manage Admins</a>
+  <a href="blood.html"> Logout</a>
+</div>
+
+<div class="main-content">
+  <h2>Delete Donation</h2>
+
+  <div class="form-container">
+    <form action="delete-donation.php" method="POST">
+      <div class="form-group">
+        <label for="donation_id">Enter Donation ID to Delete:</label>
+        <input type="number" name="donation_id" id="donation_id" required>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn-submit">Delete Donation</button>
+        <a href="AprDONA.html" class="btn-back">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

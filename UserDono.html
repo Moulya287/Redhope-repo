@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pending User Donations - RedHope Blood Bank</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    /* Your same CSS (already good) */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #f5f5f5;
+    }
+
+    header {
+      width: 100%;
+      height: 90px;
+      background-color: #d32f2f;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 80px;
+      width: 80px;
+    }
+
+    .logo h1 {
+      color: white;
+      font-size: 24px;
+      margin-left: 10px;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 90px;
+      left: 0;
+      width: 220px;
+      height: calc(100vh - 90px);
+      background-color: #d32f2f;
+      padding-top: 20px;
+    }
+
+    .sidebar a {
+      display: block;
+      padding: 15px 20px;
+      color: white;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .sidebar a:hover {
+      background-color: #b71c1c;
+    }
+
+    .main-content {
+      margin-left: 220px;
+      padding: 120px 30px 30px;
+    }
+
+    h2 {
+      color: #d32f2f;
+      margin-bottom: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 14px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+      vertical-align: middle;
+    }
+
+    th {
+      background-color: #d32f2f;
+      color: white;
+    }
+
+    td {
+      background-color: #fff;
+    }
+
+    .action-btns {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .action-btns button {
+      padding: 8px 16px;
+      border: none;
+      border-radius: 20px;
+      color: white;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
+    }
+
+    .approve-btn {
+      background-color: #4caf50;
+    }
+
+    .approve-btn:hover {
+      background-color: #388e3c;
+    }
+
+    .delete-btn {
+      background-color: #f44336;
+    }
+
+    .delete-btn:hover {
+      background-color: #c62828;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <a href="blood.html"><img src="Sr.png" alt="RedHope Logo"></a>
+    <h1>RedHope Blood Bank - Admin Panel</h1>
+  </div>
+</header>
+
+<div class="sidebar">
+  <a href="AdHome.html"> Dashboard</a>
+  <a href="UserDono.html"> User Donations</a>
+  <a href="UserRe.html"> User Requests</a>
+  <a href="AprDONA.html"> Approved Donations</a>
+  <a href="AproRe.html"> Approved Requests</a>
+  <a href="ManageAd.html"> Manage Admins</a>
+  <a href="blood.html"> Logout</a>
+</div>
+
+<div class="main-content">
+  <h2>User Donations [ Forms filled on RedHope Website ]</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>UserDonation ID</th>
+        <th>Full Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Blood Group</th>
+        <th>Contact</th>
+        <th>Email</th>
+        <th>Quantity</th>
+        <th>Preferred Donation Date</th>
+        <th>Message</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Dynamic rows will come here -->
+    </tbody>
+  </table>
+
+</div>
+
+<script>
+fetch('get_user_donations.php')
+  .then(response => response.json())
+  .then(data => {
+    const tbody = document.querySelector('tbody');
+    tbody.innerHTML = ''; // Clear static rows
+
+    data.forEach((donation) => {
+      const row = document.createElement('tr');
+      row.setAttribute('id', `row-${donation.donation_id}`);
+      row.innerHTML = `
+        <td>${donation.donation_id}</td>
+        <td>${donation.full_name}</td>
+        <td>${donation.age}</td>
+        <td>${donation.gender}</td>
+        <td>${donation.blood_group}</td>
+        <td>${donation.contact_number}</td>
+        <td>${donation.email}</td>
+        <td>${donation.quantity}</td>
+        <td>${donation.preferred_date}</td>
+        <td>${donation.message || '-'}</td>
+        <td class="action-btns">
+          <button class="approve-btn" onclick="handleAction(${donation.donation_id}, 'Approve')">Approve</button>
+          <button class="delete-btn" onclick="handleAction(${donation.donation_id}, 'Delete')">Delete</button>
+        </td>
+      `;
+      tbody.appendChild(row);
+    });
+  });
+
+  function handleAction(id, action) {
+  fetch('update_donation_status.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: `id=${id}&action=${action}`
+  })
+  .then(res => res.text())
+  .then(response => {
+    if (response.trim() === "success") {
+      if (action === 'Approve') {
+        window.location.href = 'approved_donation_success.html';
+      } else if (action === 'Delete') {
+        window.location.href = 'deleted_donation_success.html';
+      }
+    } else {
+      alert("Error performing action. Please try again.");
+    }
+  });
+}
+
+</script>
+
+</body>
+</html>

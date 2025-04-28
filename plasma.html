@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RedHope Blood Bank</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #fff5f5;
+      color: #333;
+    }
+
+    header {
+  background-color: #c62828;
+  color: white;
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo img {
+      height: 80px;
+      width: 80px;
+    }
+
+    .logo h1 {
+      font-size: 28px;
+    }
+
+    nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+
+    .info-columns {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 40px;
+      background: #e53935;
+      color: white;
+    }
+
+    .info-column {
+      flex: 1;
+      min-width: 250px;
+      margin: 10px;
+    }
+
+    .info-column h4 {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .info-column ul, .info-column p {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .info-column ul li {
+      list-style: none;
+      margin-bottom: 8px;
+    }
+
+    .info-column ul li::before {
+      content: "\2014  ";
+      color: #fddede;
+    }
+
+    .info-column .icon-text {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .info-column .icon-text img {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+
+    footer {
+      background-color: #c62828;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    .social-icons {
+      margin-top: 10px;
+    }
+
+    .social-icons a {
+      margin: 0 8px;
+      display: inline-block;
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .social-icons img {
+      width: 28px;
+      height: 28px;
+      vertical-align: middle;
+      filter: brightness(0) invert(1);
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+      filter: brightness(1.5);
+    }
+
+   .li,.mail,.map{
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.li:hover{
+  text-decoration: underline; 
+}
+
+.map:hover {
+
+  text-decoration: underline; 
+}
+.mail:hover {
+
+text-decoration: underline; 
+}
+.about{
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+}
+.about:hover {
+
+text-decoration: underline; 
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  
+}
+
+nav .dropdown {
+  position: relative;
+  margin-left: 20px;
+}
+
+nav .dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #c62828;
+  top: 100%;
+  left: 0;
+  padding: 10px 0;
+  list-style: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  z-index: 100;
+}
+
+nav .dropdown-menu li {
+  padding: 8px 20px;
+}
+
+nav .dropdown-menu li a {
+  color: white;
+  text-decoration: none;
+  font-size: 12px;
+  display: block;
+}
+
+nav .dropdown-menu li a:hover {
+  background-color: #f44336;
+}
+
+nav .dropdown:hover .dropdown-menu {
+  display: block;
+}
+.nav-link {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  
+}
+
+.nav-link:hover {
+  color:  #f44336;
+  text-decoration: underline;
+}
+.hero {
+      background: linear-gradient(to right, #c62828, #f44336);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .hero h2 {
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .content {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .service-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+
+    .service-text {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .service-text h3 {
+      color: #c62828;
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .service-text p {
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .service-image {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .service-image img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+   
+    @media (max-width: 768px) {
+      .service-section {
+        flex-direction: column;
+      }
+    }
+    .criteria-section {
+  background-color: #fddede;
+  padding: 40px;
+  border-radius: 16px;
+  margin: 40px 0;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.criteria-section h3 {
+  color: #c62828;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.criteria-section ul {
+  list-style: none;
+  padding-left: 0;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.criteria-section ul li {
+  margin-bottom: 10px;
+}
+
+.criteria-section p {
+  margin-top: 20px;
+  font-style: italic;
+  color: #555;
+}
+.custom-divider {
+  text-align: center;
+  margin: 40px auto;
+  position: relative;
+}
+
+.custom-divider::before,
+.custom-divider::after {
+  content: '';
+  display: inline-block;
+  width: 30%;
+  height: 2px;
+  background: linear-gradient(to right, #c62828, #fddede);
+  vertical-align: middle;
+  margin: 0 12px;
+  border-radius: 5px;
+}
+
+.custom-divider span {
+  font-size: 20px;
+  color: #c62828;
+  letter-spacing: 8px;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="blood.html"><img src="Sr.png" alt="RedHope Logo"></a>
+      <h1>RedHope Blood Bank</h1>
+    </div>
+    <nav>
+      <a href="blood.html" class="nav-link">Home</a>
+      <a href="donate.html" class="nav-link">Donate</a>
+      <a href="request.html" class="nav-link">Request</a>
+    
+     
+      <div class="dropdown">
+        <a href="#" >Services</a>
+        <ul class="dropdown-menu">
+          <li><a href="blcoll&Man.html">Blood Donation & Collection</a></li>
+          <li><a href="plasma.html">Plasma Donation & Apheresis</a></li>
+          <li><a href="compo.html">Component Separation</a></li>
+          <li><a href="emer.html">Emergency Blood Supply</a></li>
+          <li><a href="rare.html">Rare Blood Group Support</a></li>
+          <li><a href="train.html">Training & Capacity Building</a></li>
+          <li><a href="servi.html">Research</a></li>
+        </ul>
+      </div>
+    
+    
+      <div class="dropdown">
+        <a href="#">About Us</a>
+        <ul class="dropdown-menu">
+          <li><a href="about.html#achievements">Our Achievements</a></li>
+          <li><a href="about.html#management">Management</a></li>
+        </ul>
+      </div>
+    
+      <a href="testimonial.html" class="nav-link">Testimonials</a>
+      <a href="contactdbms.html" class="nav-link">Contact</a>
+      <a href="AdminLogIN.html" class="nav-link">Admin</a>
+    </nav>
+    
+  </header>
+  
+
+
+
+
+
+
+  <div class="hero">
+    <h2>Plasma Donation & Apheresis</h2>
+    <p>Discover how plasma donation helps save lives and what makes apheresis a unique and advanced donation method.</p>
+  </div>
+
+  <div class="content">
+    <div class="service-section">
+      <div class="service-text">
+        <h3>What is Plasma Donation?</h3>
+        <p>Plasma is the liquid portion of blood that helps with clotting and fighting diseases. Donating plasma is a powerful way to help those with clotting disorders, immune deficiencies, and other chronic conditions.</p>
+        <p>At RedHope, we use the latest equipment to safely collect plasma through a process called apheresis, which separates plasma and returns red cells and platelets back to the donor.</p>
+      </div>
+      <div class="service-image">
+        <img src="pl.webp" alt="Plasma donation process">
+      </div>
+    </div>
+
+    <div class="custom-divider">
+      <span>• • •</span>
+    </div>
+
+    <div class="service-section">
+      <div class="service-image">
+        <img src="plasmapheresis.jpg" alt="Apheresis machine">
+      </div>
+      <div class="service-text">
+        <h3>Understanding Apheresis</h3>
+        <p>Apheresis is a medical technology in which the blood of a donor is passed through an apparatus that separates out one particular component and returns the remainder to the circulation.</p>
+        <p>This process allows for a more targeted donation, ensuring we gather only the needed components for specific patients.</p>
+      </div>
+    </div>
+
+    <div class="custom-divider">
+      <span>• • •</span>
+    </div>
+
+    <div class="service-section">
+      <div class="service-text">
+        <h3>Benefits of Plasma Donation</h3>
+        <p>Plasma donations help patients suffering from burns, shock, trauma, and other life-threatening conditions. It is also used to produce therapies that treat rare diseases.</p>
+        <p>Donors benefit from knowing they’re contributing to lifesaving treatments, and apheresis allows them to donate more frequently than whole blood donors.</p>
+      </div>
+      <div class="service-image">
+        <img src="ma.png" alt="Plasma benefits">
+      </div>
+    </div>
+
+    <div class="custom-divider">
+      <span>• • •</span>
+    </div>
+
+    <div class="service-section">
+      <div class="service-image">
+        <img src="mi.png" alt="Ready to donate">
+      </div>
+      <div class="service-text">
+        <h3>Are You Eligible?</h3>
+        <p>To donate plasma, you must be in good health, be at least 18 years old, and weigh more than 50 kg. You'll also need to pass a brief health screening before donation.</p>
+        <div class="criteria-section">
+          <h3>Plasma Donation Requirements</h3>
+          <ul>
+            <li>💉 Age: 18-65 years</li>
+            <li>🪶Weight: At least 50 kg</li>
+            <li>⚕️ Overall good health</li>
+            <li>⏳ Donation gap: At least 2 weeks between plasma donations</li>
+            <li>🚀 No recent surgeries or major illnesses</li>
+            <li>🩺 Free from contagious diseases</li>
+          </ul>
+          <p><strong>Note:</strong> Plasma donation is safe, and our team ensures your comfort throughout the procedure.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="custom-divider">
+      <span>• • •</span>
+    </div>
+
+    <div class="service-section">
+      <div class="service-text">
+        <h3>Be a Lifesaver Today</h3>
+        <p>Every drop of plasma has the power to change lives. Join our network of donors at RedHope and be the difference in someone’s recovery journey.</p>
+      </div>
+      <div class="service-image">
+        <img src="do.jpg" alt="Be a lifesaver">
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+ 
+
+  <div class="info-columns">
+    <div class="info-column">
+      <h4>About Us</h4>
+      <ul>
+        <li><a href="about.html#achievements" class="about">Our Achievements</a></li>
+        <li><a href="about.html#management" class="about">Management</a></li>
+      </ul>
+      <img src="Sr.png" alt="BMST Logo" style="width: 100px; margin-top: 10px;">
+      <h1>RedHope Blood Bank</h1>
+      <h3>  - Your Blood, Their Hope.</h3>
+    </div>
+    <div class="info-column">
+      <h4>Services</h4>
+      <ul>
+        <li><a class="li" href="blcoll&Man.html">Blood Donation & Collection</a></li>
+        <li><a class="li" href="plasma.html">Plasma Donation & Apheresis</a></li>
+        <li><a class="li" href="compo.html">Component Separation</a></li>
+        <li><a class="li" href="emer.html">Emergency Blood Supply</a></li>
+        <li><a class="li" href="rare.html">Rare Blood Group Support</a></li>
+        <li><a class="li" href="train.html">Training & Capacity Building</a></li>
+        <li><a class="li" href="servi.html">Research</a></li>
+      </ul>
+    </div>
+    <div class="info-column">
+      <h4>Contact Us</h4>
+      <div class="icon-text"><img src="hi.png" alt="Location">RedHope Blood Bank<br>
+        #123, Health Avenue, Indiranagar,<br>
+        Bengaluru, Karnataka – 560038 .</div>
+        <br>
+      <div class="icon-text"><img src="tha.png" alt="Phone">+91 (81) 7729 3684</div><br>
+      <div class="icon-text"><img src="nama.png" alt="Email"><a href="https://mail.google.com/mail/u/0/#inbox?compose=new" class="mail"  target="_blank">REDHOPEbloodbank@rhbb_india.org</a></div><br>
+      <div class="icon-text"><img src="GU.png" alt="Map"><a href="https://www.google.co.in/maps" class="map"   target="_blank">Google Map / Directions</a></div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 RedHope Blood Bank. All rights reserved.</p>
+    <div class="social-icons">
+        <a href="https://www.facebook.com"><img src="REE.png" alt="Facebook"  ></a>
+        <a href="https://www.twitter.com"><img src="SHA.png" alt="Twitter"  ></a>
+        <a href="https://www.instagram.com"><img src="KSHA.png" alt="Instagram" ></a>
+        <a href="https://www.youtube.com"><img src="NIREK.png" alt="YouTube"  ></a>
+      </div>
+  </footer>
+
+  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
